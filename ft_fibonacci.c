@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcomic <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 21:54:37 by pcomic            #+#    #+#             */
-/*   Updated: 2019/09/24 21:55:14 by pcomic           ###   ########.fr       */
+/*   Created: 2019/08/03 21:00:11 by pcomic            #+#    #+#             */
+/*   Updated: 2019/09/24 22:14:54 by pcomic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int		ft_fibonacci(int index)
 {
-	size_t	q;
-
-	q = 0;
-	while (src[q] != '\0' && q < n)
-	{
-		dest[q] = src[q];
-		q++;
-	}
-	while (q < n)
-	{
-		dest[q] = '\0';
-		q++;
-	}
-	return (dest);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }

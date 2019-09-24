@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcomic <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 21:54:37 by pcomic            #+#    #+#             */
-/*   Updated: 2019/09/24 21:55:14 by pcomic           ###   ########.fr       */
+/*   Created: 2019/09/24 22:24:53 by pcomic            #+#    #+#             */
+/*   Updated: 2019/09/24 22:30:48 by pcomic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int		ft_strcmp(const char *str1, const char *str2)
 {
-	size_t	q;
+	unsigned char *s1;
+	unsigned char *s2;
 
-	q = 0;
-	while (src[q] != '\0' && q < n)
+	s1 = (unsigned char*)str1;
+	s2 = (unsigned char*)str2;
+	while (*s1 && *s2)
 	{
-		dest[q] = src[q];
-		q++;
+		if (*s1 != *s2)
+			return ((int)(*s1 - *s2));
+		s1++;
+		s2++;
 	}
-	while (q < n)
-	{
-		dest[q] = '\0';
-		q++;
-	}
-	return (dest);
+	if ((*s1 && !*s2) || (*s2 && !*s1))
+		return ((int)(*s1 - *s2));
+	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pcomic <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/24 21:43:46 by pcomic            #+#    #+#             */
+/*   Updated: 2019/09/24 21:59:25 by pcomic           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_digits(int n)
@@ -18,9 +30,9 @@ static int	ft_digits(int n)
 
 char		*ft_itoa(int n)
 {
-	char			*res;
+	char				*res;
 	unsigned int		nb;
-	int			q;
+	int					q;
 
 	if (!(res = (char *)malloc(sizeof(char) * (ft_digits(n) + 1))))
 		return (NULL);

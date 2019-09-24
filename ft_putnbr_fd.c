@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcomic <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 21:54:37 by pcomic            #+#    #+#             */
-/*   Updated: 2019/09/24 21:55:14 by pcomic           ###   ########.fr       */
+/*   Created: 2019/09/24 21:49:18 by pcomic            #+#    #+#             */
+/*   Updated: 2019/09/24 21:49:20 by pcomic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	q;
+	unsigned int	nb;
 
-	q = 0;
-	while (src[q] != '\0' && q < n)
+	if (n < 0)
 	{
-		dest[q] = src[q];
-		q++;
+		ft_putchar_fd('-', fd);
+		nb = -n;
 	}
-	while (q < n)
+	else
+		nb = n;
+	if (nb <= 9)
+		ft_putchar_fd(nb + 48, fd);
+	if (nb >= 10)
 	{
-		dest[q] = '\0';
-		q++;
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd(nb % 10 + 48, fd);
 	}
-	return (dest);
 }

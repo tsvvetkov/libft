@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcomic <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 21:54:37 by pcomic            #+#    #+#             */
-/*   Updated: 2019/09/24 21:55:14 by pcomic           ###   ########.fr       */
+/*   Created: 2019/08/03 19:46:04 by pcomic            #+#    #+#             */
+/*   Updated: 2019/09/24 22:13:21 by pcomic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int		ft_iterative_factorial(int nb)
 {
-	size_t	q;
+	int i;
+	int a;
 
-	q = 0;
-	while (src[q] != '\0' && q < n)
+	if (nb == 0)
+		return (1);
+	if (nb < 0 || nb > 12)
+		return (0);
+	a = 1;
+	i = 1;
+	while (i <= nb)
 	{
-		dest[q] = src[q];
-		q++;
+		a = a * i;
+		i++;
 	}
-	while (q < n)
-	{
-		dest[q] = '\0';
-		q++;
-	}
-	return (dest);
+	return (a);
 }
